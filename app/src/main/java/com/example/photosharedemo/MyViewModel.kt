@@ -50,8 +50,8 @@ class MyViewModel: ViewModel() {
                 // build a storage reference path: firebase storage/user's id/document's id/ file_name
                 val uri = Uri.parse(message.photoUrl)
                 val key = docRef.id
-                val storageRef = Firebase.storage
-                    .getReference(user!!.uid)
+                val storageRef = Firebase.storage.reference
+                    .child(user!!.uid)
                     .child(key)
                     .child(uri.lastPathSegment!!)
                 putImageInStorage(storageRef, uri, docRef)
